@@ -1,0 +1,8 @@
+.parent-flex-1 {
+    display: flex;
+}
+
+.child-flex-1 {
+    flex-grow: 1;
+}
+
