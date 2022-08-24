@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
 /*adds global margin to the webpage*/
 :root {
     margin: 2%;
@@ -13,7 +9,6 @@ body {
 }
 
 /*sets parent flexbox property of the header/navbar items*/
->>>>>>> fc200a0d5f2d191d689dcd816d07eb8641fea60a
 .parent-flex1-1 {
     display: flex;
 }
