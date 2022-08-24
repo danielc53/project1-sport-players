@@ -27,7 +27,8 @@ body {
 .flex-child1-2 {
     display: flex;
     flex-grow: 1;
-    justify-content: center;
+
+    
 }
 
 #navbar {
@@ -47,6 +48,7 @@ body {
 /*styles the main title text*/
 #title {
     font-size: 36px;
+    margin-left: 30%;
 }
 
 .parent-flex1-2 {
@@ -67,4 +69,16 @@ body {
 
 p {
     font-size: 24px;
+}
+
+#player-2, #player-1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#wiki-bio {
+   
+    width: fit-content;
+    padding: 5px;
+    border: solid 5px black;
 }
