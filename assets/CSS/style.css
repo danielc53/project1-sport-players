@@ -48,3 +48,23 @@ body {
 #title {
     font-size: 36px;
 }
+
+.parent-flex1-2 {
+    display: flex;
+    margin: 2%;
+    justify-content: center;
+}
+
+.child-flex2-1 {
+    margin-right: 10%;
+}
+
+
+
+.child-flex2-2 {
+    margin-left: 10%;
+}
+
+p {
+    font-size: 24px;
+}
