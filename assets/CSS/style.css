@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 46db01d80f9cafc8090bb3257def67e044d2e0e2
 /*adds global margin to the webpage*/
 :root {
     margin: 2%;
@@ -13,7 +16,10 @@ body {
 }
 
 /*sets parent flexbox property of the header/navbar items*/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 46db01d80f9cafc8090bb3257def67e044d2e0e2
 .parent-flex1-1 {
     display: flex;
 }
@@ -32,7 +38,7 @@ body {
 .flex-child1-2 {
     display: flex;
     flex-grow: 1;
-    justify-content: center;
+    
 }
 
 #navbar {
@@ -52,6 +58,7 @@ body {
 /*styles the main title text*/
 #title {
     font-size: 36px;
+    margin-left: 30%;
 }
 
 .parent-flex1-2 {
