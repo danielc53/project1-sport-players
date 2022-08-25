@@ -1,6 +1,7 @@
 /*adds global margin to the webpage*/
 :root {
-    margin: 2%;
+    
+    background-image: url(..//IMG/nba-players.jpeg);
 }
 
 /*sets default font color of the whole webpage to black*/
@@ -14,6 +15,7 @@ body {
 /*sets parent flexbox property of the header/navbar items*/
 .parent-flex1-1 {
     display: flex;
+    justify-content: space-evenly;
 }
 
 /*sets position layout for the home button element*/
@@ -38,6 +40,7 @@ body {
 .flex-child1-2 {
     display: flex;
     flex-grow: 1;
+    text-align: center;
 
 
 }
@@ -71,18 +74,22 @@ body {
     display: flex;
     margin: 2%;
     justify-content: center;
+    outline: 2px solid yellow;
+    background-color: rgba(240, 255, 255, 0.678);
+    justify-content: space-around;
+    min-height: 300px;
 }
 
 .child-flex2-1 {
-    margin-right: 10%;
-    padding-right: 25%;
-    border-right: 5px solid white;
+    min-width: 420px;
+    padding-left: 20px;
+    
 }
 
 
 
 .child-flex2-2 {
-    margin-left: 10%;
+    min-width: 420px;
 }
 
 p {
@@ -99,4 +106,18 @@ p {
     width: fit-content;
     padding: 5px;
     border: solid 5px black;
+}
+
+#player1searchResults {
+    background-color: rgba(128, 128, 128, 0.74);
+    padding-top: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+#player2searchResults {
+    background-color: rgba(128, 128, 128, .74);
+    padding-top: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
 }
