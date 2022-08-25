@@ -11,16 +11,19 @@ var playerName1Input = document.querySelector("#player-name");
 var playerName2Input = document.querySelector("#player-name2");
 var player1SearchResults = document.querySelector("#player1searchResults");
 var player1SearchResults = document.querySelector("#player2searchResults");
+var homeBtn = document.querySelector("#home-btn");
+
+
 
 //wikipedia search player
 async function getWikiExtract(nameA) {
   async function getResponse() {
     var theresponse = await axios.get(
       "https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=extracts&titles=" +
-        nameA[0] +
-        "%20" +
-        nameA[1] +
-        "&exintro=1&explaintext=1&origin=*"
+      nameA[0] +
+      "%20" +
+      nameA[1] +
+      "&exintro=1&explaintext=1&origin=*"
     );
     return theresponse.data.query.pages[0].extract;
   }
@@ -67,10 +70,10 @@ function searchArea(searchArray, playerNum) {
       searchArray[i].first_name + " " + searchArray[i].last_name;
     searchResults.appendChild(buttons);
     buttons.textContent = "Select";
-    buttons.setAttribute("id", '"' + searchArray[i].id + '"');
+    buttons.setAttribute("id",searchArray[i].id);
     buttons.addEventListener("click", function () {
-      searchBox.innerHTML = "";
-      console.log(this.id + " was clicked");
+      searchBox.innerHTML = "";  
+      console.log("put stuff here pls");
     });
   }
   searchBox.style.display = "inline-block";
@@ -88,8 +91,29 @@ function searchArea(searchArray, playerNum) {
   });
 }
 
+//not used currently
+async function fetchFirst100Games(playerID) {
+  var theresponse = await axios.get("https://www.balldontlie.io/api/v1/stats?per_page=100&player_ids[]=" + playerID)
+  console.log(theresponse)
+  return theresponse;
+}
+
+//in progress
+async function fetchSelectedSeasonAverages(playerID, season) { 
+  async function getResponse(){
+    var theresponse = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season +"&player_ids[]=" + playerID);
+    return theresponse;
+  }
+  try {
+    var seasonAverages = await getResponse();
+    console.log(seasonAverages);
+  } catch {
+    console.log("There has been an error: " + error);
+    return null;
+  }
+ }
+homeBtn.addEventListener("click", function () { location.reload() })
 player1SearchButton.addEventListener("click", async function () {
-  //    console.log(playerName1Input.value.toString());
   searchArea(
     await fetchSearchedPlayerName(playerName1Input.value.toString()),
     1
