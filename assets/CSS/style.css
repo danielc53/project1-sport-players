@@ -5,7 +5,10 @@
 
 /*sets default font color of the whole webpage to black*/
 body {
+    background-image: url(..//IMG/nba-players.jpeg);
+    background-position: center;
     color: black;
+    background-color: transparent;
 }
 
 /*sets parent flexbox property of the header/navbar items*/
@@ -15,27 +18,39 @@ body {
 
 /*sets position layout for the home button element*/
 .child-flex1-1 {
+    background-image: url(../IMG/nba\ logo.jpeg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     flex-grow: .1;
     justify-content: center;
     align-items: center;
     margin: 0.5%;
-    
+    height: 150px;
 }
 
+.child-flex1-1:hover {
+    background-color: darkorange;
+    opacity: 70%;
+}
 /*sets position layout for the title/h1 element*/
 .flex-child1-2 {
     display: flex;
     flex-grow: 1;
 
-    
+
 }
 
 #navbar {
-    background-image: url(../IMG/navbar-grass.jpg);
+    background-image: url(../IMG/backgroundimg.jpeg);
+    background-size: cover;
+    background-repeat:initial;
     background-position: center;
-    background-position-y: -900px;
-    opacity: 75%;
+    width: 1350px;
+    height: 200px;
+    align-items: center;
+    
 }
 
 /*styles the home button*/
@@ -47,6 +62,7 @@ body {
 
 /*styles the main title text*/
 #title {
+    color: white;
     font-size: 36px;
     margin-left: 30%;
 }
@@ -59,6 +75,8 @@ body {
 
 .child-flex2-1 {
     margin-right: 10%;
+    padding-right: 25%;
+    border-right: 5px solid white;
 }
 
 
