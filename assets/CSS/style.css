@@ -1,11 +1,12 @@
 /*adds global margin to the webpage*/
 :root {
     margin: 2%;
+    background-image: url(..//IMG/nba-players.jpeg);
 }
 
 /*sets default font color of the whole webpage to black*/
 body {
-    background-image: url(..//IMG/nba-players.jpeg);
+    
     background-position: center;
     color: black;
     background-color: transparent;
