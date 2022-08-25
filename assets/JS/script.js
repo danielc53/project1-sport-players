@@ -12,8 +12,8 @@ var playerName2Input = document.querySelector("#player-name2");
 var player1SearchResults = document.querySelector("#player1searchResults");
 var player1SearchResults = document.querySelector("#player2searchResults");
 var homeBtn = document.querySelector("#home-btn");
-
-
+var Player1ClearButton = document.querySelector("#player1ClearButton");
+var Player2ClearButton = document.querySelector("#player2ClearButton");
 
 //wikipedia search player
 async function getWikiExtract(nameA) {
@@ -41,7 +41,7 @@ async function fetchSearchedPlayerName(searchTerm) {
   console.log(searchTerm);
   async function getResponse() {
     var theresponse = await axios.get(
-      "https://www.balldontlie.io/api/v1/players?search=" + searchTerm
+      "https://www.balldontlie.io/api/v1/players?search=" + searchTerm + "&per_page=10"
     );
     return theresponse.data.data;
   }
@@ -56,11 +56,9 @@ async function fetchSearchedPlayerName(searchTerm) {
 //Places players in search boxes (unless only 1 player was returned from search) <- still have to do that part
 function searchArea(searchArray, playerNum) {
   if (playerNum === 1) {
-    player1SearchButton.style.display = "none";
     var searchBox = document.querySelector("#player1searchResults");
   } else {
     var searchBox = document.querySelector("#player2searchResults");
-    player2SearchButton.style.display = "none";
   }
   for (i = 0; i < searchArray.length; i++) {
     var searchResults = document.createElement("p");
@@ -70,25 +68,39 @@ function searchArea(searchArray, playerNum) {
       searchArray[i].first_name + " " + searchArray[i].last_name;
     searchResults.appendChild(buttons);
     buttons.textContent = "Select";
-    buttons.setAttribute("id",searchArray[i].id);
+    buttons.setAttribute("id", searchArray[i].id);
     buttons.addEventListener("click", function () {
-      searchBox.innerHTML = "";  
+      searchBox.innerHTML = "";
+
       console.log("put stuff here pls");
     });
   }
   searchBox.style.display = "inline-block";
-  var clearButton = document.createElement("button");
-  searchBox.insertBefore(clearButton, searchBox.firstChild);
-  clearButton.textContent = "Clear Search";
-  clearButton.addEventListener("click", function () {
-    searchBox.innerHTML = "";
+
+
+  Player1ClearButton.addEventListener("click", function () {
     if (playerNum === 1) {
+      searchBox.innerHTML = "";
       player1SearchButton.style.display = "block";
+      Player1ClearButton.style.display = "none";
     }
+  })
+
+  Player2ClearButton.addEventListener("click", function () {
     if (playerNum === 2) {
+      searchBox.innerHTML = "";
       player2SearchButton.style.display = "block";
-    }
-  });
+      Player2ClearButton.style.display = "none";
+    }})
+}
+
+function displayPlayerInfo(playerInfo, playerNum) {
+
+}
+
+async function getPlayerInfo(playerID) {
+  var theresponse = await axios.get("https://www.balldontlie.io/api/v1/stats?per_page=100&player_ids[]=" + playerID);
+  return theresponse;
 }
 
 //not used currently
@@ -99,27 +111,27 @@ async function fetchFirst100Games(playerID) {
 }
 
 //in progress
-async function fetchSelectedSeasonAverages(playerID, season) { 
-  async function getResponse(){
-    var theresponse = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season +"&player_ids[]=" + playerID);
-    return theresponse;
-  }
+async function fetchSelectedSeasonAverages(playerID, season) {
   try {
-    var seasonAverages = await getResponse();
-    console.log(seasonAverages);
+    var seasonAverages = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season + "&player_ids[]=" + playerID);
+    return seasonAverages;
   } catch {
     console.log("There has been an error: " + error);
     return null;
   }
- }
+}
 homeBtn.addEventListener("click", function () { location.reload() })
 player1SearchButton.addEventListener("click", async function () {
+  player1SearchButton.style.display = "none";
+  Player1ClearButton.style.display = "block";
   searchArea(
     await fetchSearchedPlayerName(playerName1Input.value.toString()),
     1
   );
 });
 player2SearchButton.addEventListener("click", async function () {
+  player2SearchButton.style.display = "none";
+  Player2ClearButton.style.display = "block";
   searchArea(
     await fetchSearchedPlayerName(playerName2Input.value.toString()),
     2
