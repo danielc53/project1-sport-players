@@ -71,13 +71,10 @@ function searchArea(searchArray, playerNum) {
     buttons.setAttribute("id", searchArray[i].id);
     buttons.addEventListener("click", function () {
       searchBox.innerHTML = "";
-
-      console.log("put stuff here pls");
+      handlePlayerSelect(this.id,playerNum);
     });
   }
   searchBox.style.display = "inline-block";
-
-
   Player1ClearButton.addEventListener("click", function () {
     if (playerNum === 1) {
       searchBox.innerHTML = "";
@@ -94,13 +91,22 @@ function searchArea(searchArray, playerNum) {
     }})
 }
 
-function displayPlayerInfo(playerInfo, playerNum) {
 
+//TODO: fetch images from local json maybe
+async function handlePlayerSelect(playerID, playerNum) {
+   var playerInfo = await getPlayerInfo(playerID);
+   if(playerNum === 1){ 
+    var contentBox = document.querySelector("#player1searchResults");
+   }
+   else {var contentBox =document.querySelector("#player2searchResults");}
+   var playerNameEl = document.createElement("h2")
+   contentBox.appendChild(playerNameEl);
+   playerNameEl.append(playerInfo.first_name + " " + playerInfo.last_name);
 }
 
 async function getPlayerInfo(playerID) {
-  var theresponse = await axios.get("https://www.balldontlie.io/api/v1/stats?per_page=100&player_ids[]=" + playerID);
-  return theresponse;
+  var theresponse = await axios.get("https://www.balldontlie.io/api/v1/players/" + playerID);
+  return theresponse.data;
 }
 
 //not used currently
