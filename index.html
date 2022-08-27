@@ -15,14 +15,14 @@
         <h1 class="child-flex1-2" id="title">Sports Comparison Tool</h1>
     </header>
     <main class="parent-flex1-2">
-        <section class="firstplayer child-flex2-1">
+        <section class="firstplayer child-flex2-1" id="player1Box">
             <p class="infant-flex1-1" id="player-1">Player 1</p>
             <input class="infant-flex1-2" id="player-name" placeholder="Search"><br>
             <button class="infant-flex1-4" id="player1SearchButton">Search</button>
             <button style="display:none" class="infant-flex1-4" id="player1ClearButton">Clear Search</button>
             <div style="display:none" id="player1searchResults"></div>
-            <p class="infant-flex1-3" id="team-name" placeholder="Warriors"></p>
-            <p style="display:none" class="infant-flex1-5" id="wiki-bio1">add wiki api</p>
+            <p style="display:none" class="infant-flex1-3" id="team-name"></p>
+            <p style="display:none" class="infant-flex1-5" id="wiki-bio1"></p>
         </section>
 
         <section class="secondplayer child-flex2-2">
@@ -31,8 +31,8 @@
             <button class="infant-flex2" id="player2SearchButton">Search</button>
             <button style="display:none" class="infant-flex1-4" id="player2ClearButton">Clear Search</button>
             <div style="display:none" id="player2searchResults"></div>
-            <p class="infant-flex2" id="team-name2"></p>
-            <p style="display:none" class="infant-flex2" id="wiki-bio2">add wiki api</p>
+            <p style="display:none" class="infant-flex2" id="team-name2"></p>
+            <p style="display:none" class="infant-flex2" id="wiki-bio2"></p>
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
