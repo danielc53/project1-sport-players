@@ -66,30 +66,37 @@ body {
 /*styles the main title text*/
 #title {
     color: white;
-    font-size: 36px;
-    margin-left: 30%;
+    font-size: 56px;
+    text-align: center;
 }
 
 .parent-flex1-2 {
     display: flex;
     margin: 2%;
     justify-content: center;
-    outline: 2px solid yellow;
     background-color: rgba(240, 255, 255, 0.678);
     justify-content: space-around;
-    min-height: 300px;
+    min-height: 1500px;
 }
 
 .child-flex2-1 {
     min-width: 420px;
-    padding-left: 20px;
-    
 }
-
-
 
 .child-flex2-2 {
     min-width: 420px;
+}
+
+.infant-flex1-3, .infant-flex2-3 {
+    margin-top: 5px;
+}
+
+.infant-flex1-2, .infant-flex2-2 {
+    font-size: 24px;
+}
+
+.infant-flex1-3, .infant-flex2-3 {
+    
 }
 
 p {
