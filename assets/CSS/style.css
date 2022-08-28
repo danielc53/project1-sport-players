@@ -2,43 +2,51 @@
 :root {
     margin: 2%;
     background-image: url(..//IMG/nba-players.jpeg);
+    
 }
 
-/*sets default font color of the whole webpage to black*/
+/**/
 body {
-    background-position: center;
+    /*sets default font color of the whole webpage to black*/
     color: black;
-    background-color: transparent;
+    /*sets the background html image to not move when page dynamically changes*/
+    background-position: center;
 }
 
 /*sets entire body container to flexbox*/
 .elder-flex {
     /*FLEXBOX PROPERTIES*/
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /*stacks 'parent-flex1-1' and 'parent-flex1-2'*/
+    flex-direction: column;  
 }
 
 /*sets parent flexbox property of the header/navbar items*/
 .parent-flex1-1 {
     /*FLEXBOX PROPERTIES*/
     display: flex;
+    /*sets space between for the logo/homeBtn container and the main title container*/
     justify-content: space-evenly;
     /*BACKGROUND IMAGE SETTINGS*/
     background-image: url(../IMG/backgroundimg.jpeg);
     background-size: cover;
     background-repeat:initial;
     background-position: center;
+    /*sets height of the logo box.  as a result- top and bottom margins are applied*/
     height: 200px;
+    /*centers picture on the  vertical axis*/
     align-items: center;
 }
 
 .parent-flex1-2 {
+    /*FLEXBOX PROPERTIES*/
     display: flex;
-    outline: 2px solid yellow;
+    /*sets transparent gray background that all dynamic content will appear in*/
     background-color: rgba(240, 255, 255, 0.678);
     justify-content: space-around;
+    /*sets minimum height for the gray transparent background*/
     min-height: 300px;
+    /*sets max height of the container to be whatever the height is of the displayed content*/
     max-height: max-content;
 }
 
@@ -72,18 +80,52 @@ body {
     opacity: 70%;
 }
 
-.child-flex2-1 {
-    width: 420px;
+/*pertains to the two containers in the opaque gray*/
+.child-flex2-1, .child-flex2-2 {
+    /*FLEXBOX PROPERTIES*/
     display: flex;
+    /*stacks elements inside child-flex2-1 on top of each other*/
     flex-direction: column;
+    /*centers all elements inside of their container*/
     align-items: center;
+    /*sets initial width of the container*/
+    width: 420px;
 }
 
-.child-flex2-2 {
-    width: 420px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+p {
+    /*sets font size of the returned player search results*/
+    font-size: 24px;
+}
+/*sets font size and the font weight of the text "Player 1" and "Player 2"*/
+#player-2, #player-1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/*NOT WORKING: when there are no wiki bio results, an empty square will persist*/
+/* #wiki-bio1, #wiki-bio2 {
+    width: fit-content;
+    padding: 5px;
+    border: solid 5px black;
+} */
+
+#player1searchResults {
+    background-color: rgba(128, 128, 128, 0.74);
+    padding: 20px;
+    margin-top: 10px;
+}
+
+#player2searchResults {
+    background-color: rgba(128, 128, 128, .74);
+    padding-top: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.spacing {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 
@@ -107,42 +149,3 @@ body {
 #title {
 
 } */
-
-.infant-flex1-2, .infant-flex2-2{
-    margin-bottom: 5px;
-}
-
-p {
-    font-size: 24px;
-}
-
-#player-2, #player-1 {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#wiki-bio {
-   
-    width: fit-content;
-    padding: 5px;
-    border: solid 5px black;
-}
-
-#player1searchResults {
-    background-color: rgba(128, 128, 128, 0.74);
-    padding: 20px;
-    margin-top: 10px;
-}
-
-#player2searchResults {
-    background-color: rgba(128, 128, 128, .74);
-    padding-top: 20px;
-    margin-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.spacing {
-    margin-left: 10px;
-    margin-right: 10px;
-}
