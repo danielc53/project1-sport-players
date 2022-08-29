@@ -77,13 +77,13 @@ async function handlePlayerSelect(playerID, playerNum) {
    var playerInfo = await getPlayerInfo(playerID);
    if(playerNum === 1){ 
     var contentBox = document.querySelector("#player1searchResults");
-    var wikiExtractEl = document.getElementById("wiki-bio1");
-    var teamNameEl = document.getElementById("team-name");
+    var wikiExtractEl = document.querySelector("#wiki-bio1");
+    var teamNameEl = document.querySelector("#team-name");
    }
    else {
     var contentBox =document.querySelector("#player2searchResults");
-    var wikiExtractEl = document.querySelector("wiki-bio2");
-    var teamNameEl = document.querySelector("team-name2");
+    var wikiExtractEl = document.querySelector("#wiki-bio2");
+    var teamNameEl = document.querySelector("#team-name2");
   }
    var wikiExtract = await fetchWikiExtract(playerInfo.first_name, playerInfo.last_name);
    if (wikiExtract.length === 0) {
@@ -92,7 +92,7 @@ async function handlePlayerSelect(playerID, playerNum) {
    var playerNameEl = document.createElement("h2");
    contentBox.appendChild(playerNameEl);
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
-   wikiExtractEl.append(wikiExtract);
+   wikiExtractEl.innerHTML = wikiExtract;
    teamNameEl.innerHTML = playerInfo.team.name;
    teamNameEl.style.display = "inline-block";
    playerNameEl.style.display = "inline-block";
@@ -176,7 +176,7 @@ player2SearchButton.addEventListener("click", async function () {
   if (searchResults.length === 1) {
     handlePlayerSelect(await searchResults[0].id, 2);
   }
-  else if (searchResults > 1){
+  else if (searchResults.length > 1){
     searchArea(searchResults, 2);
   }
   else {
