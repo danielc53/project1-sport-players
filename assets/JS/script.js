@@ -93,8 +93,9 @@ async function handlePlayerSelect(playerID, playerNum) {
    contentBox.appendChild(playerNameEl);
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
+   playerNameEl.appendChild(teamNameEl);
    teamNameEl.innerHTML = playerInfo.team.name;
-   teamNameEl.style.display = "inline-block";
+   teamNameEl.style.display = "block";
    playerNameEl.style.display = "inline-block";
    wikiExtractEl.style.display = "inline-block";
 }
@@ -117,6 +118,7 @@ async function fetchSelectedSeasonAverages(playerID, season) {
     var seasonAverages = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season + "&player_ids[]=" + playerID);
     return seasonAverages;
   } catch {
+    console.log(seasonAverages);
     console.log("There has been an error: " + error);
     return null;
   }
