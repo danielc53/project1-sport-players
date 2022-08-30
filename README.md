@@ -8,7 +8,7 @@ We created a website so that users will be able to search any NBA player and ret
 
 Website:
 
-Repository:
+Repository: https://github.com/danielc53/project1-sport-players
 
 ## Screenshot
 
