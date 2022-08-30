@@ -90,6 +90,7 @@ body {
     align-items: center;
     /*sets initial width of the container*/
     width: 420px;
+    margin-bottom: 10px;
 }
 
 p {

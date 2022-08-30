@@ -63,7 +63,6 @@ function searchArea(searchArray, playerNum) {
     searchResults.appendChild(buttons);
     buttons.textContent = "Select";
     buttons.setAttribute("id", searchArray[i].id);
-    buttons.setAttribute("class", "spacing");
     buttons.addEventListener("click", function () {
       searchBox.innerHTML = "";
       handlePlayerSelect(this.id,playerNum);
