@@ -194,3 +194,4 @@ player2SearchButton.addEventListener("click", async function () {
 //     console.log(wikiText);
 // }
 // dothething();
+
