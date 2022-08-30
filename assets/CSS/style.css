@@ -140,3 +140,66 @@ p {
     align-items: center;
     
 } */
+<<<<<<< HEAD
+
+/*styles the home button*/
+
+/* #home-btn {
+    
+}
+
+
+#title {
+
+} */
+
+
+/*styles the main title text*/
+
+
+
+.child-flex2-1 {
+    min-width: 420px;
+    margin-left: 10%;
+    
+}
+
+.child-flex2-2 {
+    min-width: 420px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+p {
+    font-size: 24px;
+}
+
+#player-2, #player-1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#wiki-bio {
+   
+    width: fit-content;
+    padding-left: 5px;
+    border: solid 5px black;
+}
+
+#player1searchResults {
+    background-color: rgba(128, 128, 128, 0.74);
+    padding-top: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+#player2searchResults {
+    background-color: rgba(128, 128, 128, .74);
+    padding-top: 20px;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+
+=======
+>>>>>>> 13b0baed1503ec900718b057ad90520374167b85
