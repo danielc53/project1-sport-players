@@ -94,13 +94,20 @@ async function handlePlayerSelect(playerID, playerNum) {
     wikiExtract = "There is currently no bio available for this player."
   }
    var playerNameEl = document.createElement("h2");
-   stats.innerHTML = seasonStats.data.data[0].pts;
+   var rebounds = document.createElement("p");
+   var assist = document.createElement("p");
+   var steals = document.createElement("p");
+   rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg.";
+   assist.innerHTML = seasonStats.data.data[0].ast + " apg.";
+   steals.innerHTML = seasonStats.data.data[0].stl + " spg.";
+   stats.innerHTML = seasonStats.data.data[0].pts + " ppg.";
    contentBox.appendChild(playerNameEl);
+   stats.append(rebounds);
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
    playerNameEl.appendChild(teamNameEl);
-   teamNameEl.appendChild(stats);
    teamNameEl.innerHTML = playerInfo.team.name;
+   stats.style.display = "block";
    teamNameEl.style.display = "block";
    playerNameEl.style.display = "inline-block";
    wikiExtractEl.style.display = "inline-block";
