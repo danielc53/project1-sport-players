@@ -74,27 +74,40 @@ function searchArea(searchArray, playerNum) {
 
 //TODO: fetch images from local json maybe
 async function handlePlayerSelect(playerID, playerNum) {
+  var seasonStats = await fetchSelectedSeasonAverages(playerID, "2021");
+  //console.log(seasonStats);
    var playerInfo = await getPlayerInfo(playerID);
    if(playerNum === 1){ 
     var contentBox = document.querySelector("#player1searchResults");
     var wikiExtractEl = document.querySelector("#wiki-bio1");
     var teamNameEl = document.querySelector("#team-name");
+    var stats = document.querySelector("#stats");
    }
    else {
     var contentBox =document.querySelector("#player2searchResults");
     var wikiExtractEl = document.querySelector("#wiki-bio2");
     var teamNameEl = document.querySelector("#team-name2");
+    var stats = document.querySelector("#stats2");
   }
    var wikiExtract = await fetchWikiExtract(playerInfo.first_name, playerInfo.last_name);
    if (wikiExtract.length === 0) {
     wikiExtract = "There is currently no bio available for this player."
   }
    var playerNameEl = document.createElement("h2");
+   var rebounds = document.createElement("p");
+   var assist = document.createElement("p");
+   var steals = document.createElement("p");
+   rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg.";
+   assist.innerHTML = seasonStats.data.data[0].ast + " apg.";
+   steals.innerHTML = seasonStats.data.data[0].stl + " spg.";
+   stats.innerHTML = seasonStats.data.data[0].pts + " ppg.";
    contentBox.appendChild(playerNameEl);
+   stats.append(rebounds);
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
    playerNameEl.appendChild(teamNameEl);
    teamNameEl.innerHTML = playerInfo.team.name;
+   stats.style.display = "block";
    teamNameEl.style.display = "block";
    playerNameEl.style.display = "inline-block";
    wikiExtractEl.style.display = "inline-block";
@@ -117,8 +130,8 @@ async function fetchSelectedSeasonAverages(playerID, season) {
   try {
     var seasonAverages = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season + "&player_ids[]=" + playerID);
     return seasonAverages;
+    
   } catch {
-    console.log(seasonAverages);
     console.log("There has been an error: " + error);
     return null;
   }
@@ -131,6 +144,7 @@ async function fetchSelectedSeasonAverages(playerID, season) {
   var wikiBio1 = document.getElementById("wiki-bio1");
   var teamName1El = document.getElementById("team-name");
   var playerName1Input = document.querySelector("#player-name");
+  var stats1 = document.getElementById("stats");
   var player1SearchResults = document.querySelector("#player1searchResults");
   player1SearchButton.style.display = "none";
   player1SearchResults.style.display = "block";
@@ -157,9 +171,11 @@ async function fetchSelectedSeasonAverages(playerID, season) {
     console.log("Player Cannot be found. Please try again.");
   }
 });
+
 player2SearchButton.addEventListener("click", async function () {
   var Player2ClearButton = document.querySelector("#player2ClearButton");
   var playerName2Input = document.querySelector("#player-name2");
+  var stats2 = document.getElementById("stats2");
   var player2SearchResults = document.querySelector("#player2searchResults");
   var teamName2El = document.getElementById("team-name2");
   var wikiBio2 = document.getElementById("wiki-bio2");
