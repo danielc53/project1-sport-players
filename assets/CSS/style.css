@@ -110,23 +110,16 @@ p {
     border: solid 5px black;
 } */
 
-#player1searchResults {
+#player1searchResults, #player2searchResults {
     background-color: rgba(128, 128, 128, 0.74);
     padding: 20px;
     margin-top: 10px;
-}
-
-#player2searchResults {
-    background-color: rgba(128, 128, 128, .74);
-    padding-top: 20px;
-    margin-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 420px;
 }
 
 .spacing {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    float: right;
 }
 
 
@@ -138,5 +131,6 @@ p {
     width: 1350px;
     height: 200px;
     align-items: center;
+    text-align: center;
     
 } */
