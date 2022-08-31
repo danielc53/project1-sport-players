@@ -26,7 +26,7 @@ async function fetchWikiExtract(firstName, lastName) {
     var result_1 = await getResponse();
     return result_1;
   } catch (error) {
-    console.log("There has been an error: " + error);
+    openModal(error);
     return null;
   }
 }
@@ -43,7 +43,41 @@ async function fetchSearchedPlayerName(searchTerm) {
     var result_2 = await getResponse();
     return result_2;
   } catch (error) {
-    console.log("There has been an error: " + error);
+    openModal(error);
+    return null;
+  }
+}
+
+async function getPlayerInfo(playerID) {
+  try{
+    var theresponse = await axios.get("https://www.balldontlie.io/api/v1/players/" + playerID);
+  } catch {
+    openModal(error);
+    return null;
+  }
+  return theresponse.data;
+}
+
+//not used currently
+async function fetchFirst100Games(playerID) {
+  try {
+    var theresponse = await axios.get("https://www.balldontlie.io/api/v1/stats?per_page=100&player_ids[]=" + playerID)
+    return theresponse;
+  } catch {
+    openModal(error);
+    return null;
+  }
+  
+}
+
+
+async function fetchSelectedSeasonAverages(playerID, season) {
+  try {
+    var seasonAverages = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season + "&player_ids[]=" + playerID);
+    return seasonAverages;
+    
+  } catch {
+    openModal(error);
     return null;
   }
 }
@@ -118,28 +152,20 @@ async function handlePlayerSelect(playerID, playerNum) {
    wikiExtractEl.style.display = "inline-block";
 }
 
-async function getPlayerInfo(playerID) {
-  var theresponse = await axios.get("https://www.balldontlie.io/api/v1/players/" + playerID);
-  return theresponse.data;
-}
-
-//not used currently
-async function fetchFirst100Games(playerID) {
-  var theresponse = await axios.get("https://www.balldontlie.io/api/v1/stats?per_page=100&player_ids[]=" + playerID)
-  console.log(theresponse)
-  return theresponse;
-}
-
-
-async function fetchSelectedSeasonAverages(playerID, season) {
-  try {
-    var seasonAverages = await axios.get("https://www.balldontlie.io/api/v1/season_averages?season=" + season + "&player_ids[]=" + playerID);
-    return seasonAverages;
-    
-  } catch {
-    console.log("There has been an error: " + error);
-    return null;
-  }
+function openModal(modalText) {
+  var modal = document.querySelector("#modal");
+  var close = document.querySelector("#closeModal");
+  var modalTextEl = document.querySelector("#modalText");
+  modalTextEl.textContent = modalText;
+  modal.style.display = "block";
+  close.addEventListener("click", function(){
+    modal.style.display = "none"
+  })
+  window.addEventListener("click", function(event) {
+    if(event.target == modal) {
+      modal.style.display = "none";
+    }
+  })
 }
 
 
@@ -173,7 +199,7 @@ async function fetchSelectedSeasonAverages(playerID, season) {
     searchArea(searchResults, 1);
   }
   else {
-    console.log("Player Cannot be found. Please try again.");
+    openModal("This player could not be found. Please check spelling and try again.");
   }
 });
 
@@ -203,7 +229,7 @@ player2SearchButton.addEventListener("click", async function () {
     searchArea(searchResults, 2);
   }
   else {
-    console.log("Player Cannot be found. Please try again.");
+    openModal("This player could not be found. Please check spelling and try again.");
   }
 });
 
