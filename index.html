@@ -9,10 +9,12 @@
     <title>Sports player comparison</title>
 </head>
 
-<body>
+<body class="elder-flex">
     <header class="parent-flex1-1" id="navbar">
         <button class="child-flex1-1" id="home-btn">Home</button>
+        <img></img>
         <h1 class="child-flex1-2" id="title">Sports Comparison Tool</h1>
+        <div id="white-space"></div>
     </header>
     <main class="parent-flex1-2">
         <section class="firstplayer child-flex2-1" id="player1Box">
@@ -27,17 +29,19 @@
         </section>
 
         <section class="secondplayer child-flex2-2">
-            <p class="infant-flex2" id="player-2">Player 2</p>
-            <input class="infant-flex2" id="player-name2" placeholder="Search"><br>
-            <button class="infant-flex2" id="player2SearchButton">Search</button>
+            <p class="infant-flex2-1" id="player-2">Player 2</p>
+            <input class="infant-flex2-2" id="player-name2" placeholder="Search"><br>
+            <button class="infant-flex2-4" id="player2SearchButton">Search</button>
             <button style="display:none" class="infant-flex1-4" id="player2ClearButton">Clear Search</button>
             <div style="display:none" id="player2searchResults"></div>
-            <p style="display:none" class="infant-flex2" id="team-name2"></p>
+            <p style="display:none" class="infant-flex2-3" id="team-name2"></p>
             <p style="display:none" class="infant-flex2-2" id="stats2"></p>
-            <p style="display:none" class="infant-flex2" id="wiki-bio2"></p>
+            <p style="display:none" class="infant-flex2-5" id="wiki-bio2"></p>
+
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/JS/script.js"></script>
 </body>
 
