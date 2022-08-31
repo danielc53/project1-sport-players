@@ -81,35 +81,37 @@ async function handlePlayerSelect(playerID, playerNum) {
    if(playerNum === 1){ 
     var contentBox = document.querySelector("#player1searchResults");
     var wikiExtractEl = document.querySelector("#wiki-bio1");
-    var teamNameEl = document.querySelector("#team-name");
     var stats = document.querySelector("#stats");
    }
    else {
     var contentBox =document.querySelector("#player2searchResults");
     var wikiExtractEl = document.querySelector("#wiki-bio2");
-    var teamNameEl = document.querySelector("#team-name2");
     var stats = document.querySelector("#stats2");
   }
    var wikiExtract = await fetchWikiExtract(playerInfo.first_name, playerInfo.last_name);
    if (wikiExtract.length === 0) {
     wikiExtract = "There is currently no bio available for this player."
   }
+   var teamNameEl = document.createElement("h2")
    var playerNameEl = document.createElement("h2");
+   var points = document.createElement("p");
    var rebounds = document.createElement("p");
    var assist = document.createElement("p");
    var steals = document.createElement("p");
+
    rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg.";
    assist.innerHTML = seasonStats.data.data[0].ast + " apg.";
    steals.innerHTML = seasonStats.data.data[0].stl + " spg.";
-   stats.innerHTML = seasonStats.data.data[0].pts + " ppg.";
-   contentBox.appendChild(playerNameEl);
-   stats.append(rebounds);
-   rebounds.append(assist);
-   assist.append(steals);
+   points.innerHTML = seasonStats.data.data[0].pts + " ppg.";
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
-   playerNameEl.appendChild(teamNameEl);
    teamNameEl.innerHTML = playerInfo.team.name;
+   stats.appendChild(points); 
+   stats.appendChild(rebounds);
+   stats.appendChild(assist);
+   stats.appendChild(steals);
+   contentBox.appendChild(playerNameEl);
+   contentBox.appendChild(teamNameEl);
    stats.style.display = "block";
    teamNameEl.style.display = "block";
    playerNameEl.style.display = "inline-block";
@@ -145,7 +147,6 @@ async function fetchSelectedSeasonAverages(playerID, season) {
 
   player1SearchButton.addEventListener("click", async function () {
   var wikiBio1 = document.getElementById("wiki-bio1");
-  var teamName1El = document.getElementById("team-name");
   var playerName1Input = document.querySelector("#player-name");
   var player1SearchResults = document.querySelector("#player1searchResults");
   var stats = document.querySelector("#stats");
@@ -156,7 +157,6 @@ async function fetchSelectedSeasonAverages(playerID, season) {
   Player1ClearButton.style.display = "block";
   Player1ClearButton.addEventListener("click", function () {
       player1SearchResults.innerHTML = "";
-      teamName1El.innerHTML = "";
       wikiBio1.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";
@@ -182,14 +182,12 @@ player2SearchButton.addEventListener("click", async function () {
   var playerName2Input = document.querySelector("#player-name2");
   var stats = document.querySelector("#stats2");
   var player2SearchResults = document.querySelector("#player2searchResults");
-  var teamName2El = document.getElementById("team-name2");
   var wikiBio2 = document.getElementById("wiki-bio2");
   player2SearchButton.style.display = "none";
   Player2ClearButton.style.display = "block";
   player2SearchResults.style.display = "block";
   Player2ClearButton.addEventListener("click", function () {
       player2SearchResults.innerHTML = "";
-      teamName2El.innerHTML = "";
       wikiBio2.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";
