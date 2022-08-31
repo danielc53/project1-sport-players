@@ -103,6 +103,8 @@ async function handlePlayerSelect(playerID, playerNum) {
    stats.innerHTML = seasonStats.data.data[0].pts + " ppg.";
    contentBox.appendChild(playerNameEl);
    stats.append(rebounds);
+   rebounds.append(assist);
+   assist.append(steals);
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
    playerNameEl.appendChild(teamNameEl);
@@ -144,8 +146,8 @@ async function fetchSelectedSeasonAverages(playerID, season) {
   var wikiBio1 = document.getElementById("wiki-bio1");
   var teamName1El = document.getElementById("team-name");
   var playerName1Input = document.querySelector("#player-name");
-  var stats1 = document.getElementById("stats");
   var player1SearchResults = document.querySelector("#player1searchResults");
+  var stats = document.querySelector("#stats");
   player1SearchButton.style.display = "none";
   player1SearchResults.style.display = "block";
 
@@ -155,6 +157,8 @@ async function fetchSelectedSeasonAverages(playerID, season) {
       player1SearchResults.innerHTML = "";
       teamName1El.innerHTML = "";
       wikiBio1.innerHTML = "";
+      stats.innerHTML = "";
+      stats.style.display = "none";
       player1SearchResults.style.display = "none";
       player1SearchButton.style.display = "block";
       Player1ClearButton.style.display = "none";
@@ -175,7 +179,7 @@ async function fetchSelectedSeasonAverages(playerID, season) {
 player2SearchButton.addEventListener("click", async function () {
   var Player2ClearButton = document.querySelector("#player2ClearButton");
   var playerName2Input = document.querySelector("#player-name2");
-  var stats2 = document.getElementById("stats2");
+  var stats = document.querySelector("#stats2");
   var player2SearchResults = document.querySelector("#player2searchResults");
   var teamName2El = document.getElementById("team-name2");
   var wikiBio2 = document.getElementById("wiki-bio2");
@@ -186,6 +190,8 @@ player2SearchButton.addEventListener("click", async function () {
       player2SearchResults.innerHTML = "";
       teamName2El.innerHTML = "";
       wikiBio2.innerHTML = "";
+      stats.innerHTML = "";
+      stats.style.display = "none";
       player2SearchResults.style.display = "none";
       player2SearchButton.style.display = "block";
       Player2ClearButton.style.display = "none";
