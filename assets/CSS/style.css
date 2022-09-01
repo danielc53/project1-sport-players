@@ -26,7 +26,7 @@ body {
     /*FLEXBOX PROPERTIES*/
     display: flex;
     /*sets space between for the logo/homeBtn container and the main title container*/
-    /* justify-content: space-evenly; */
+    justify-content: space-evenly;
     /*BACKGROUND IMAGE SETTINGS*/
     background-image: url(../IMG/backgroundimg.jpeg);
     background-size: cover;
