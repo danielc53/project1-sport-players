@@ -124,13 +124,6 @@ p {
     font-weight: bold;
 }
 
-/*NOT WORKING: when there are no wiki bio results, an empty square will persist*/
-/* #wiki-bio1, #wiki-bio2 {
-    width: fit-content;
-    padding: 5px;
-    border: solid 5px black;
-} */
-
 #player1searchResults, #player2searchResults {
     display: flex;
     text-align: center;
@@ -185,15 +178,3 @@ p {
     cursor: pointer;
   }
 
-
-/* #navbar {
-    background-image: url(../IMG/backgroundimg.jpeg);
-    background-size: cover;
-    background-repeat:initial;
-    background-position: center;
-    width: 1350px;
-    height: 200px;
-    align-items: center;
-    text-align: center;
-    
-} */
