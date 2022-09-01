@@ -109,7 +109,6 @@ function searchArea(searchArray, playerNum) {
 }
  
   async function selectSeason (playerID, playerNum) {
-    var playerData = await getPlayerInfo(playerID);
     var seasonNum = 2021;
     if (playerNum === 1) {
       var loadSeasonsB = document.querySelector("#player1dropdownB");
