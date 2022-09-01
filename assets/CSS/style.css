@@ -74,6 +74,10 @@ body {
     font-size: 60px;
 }
 
+button {
+    cursor: pointer;
+}
+
 /*changes home button based on mouse state:hover*/
 .child-flex1-1:hover {
     background-color: darkorange;
