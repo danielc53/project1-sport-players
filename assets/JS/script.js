@@ -146,7 +146,6 @@ function searchArea(searchArray, playerNum) {
 
 //TODO: fetch images from local json maybe
 async function handlePlayerSelect(playerID, playerNum, seasonNum) {
-  console.log("this function is being called");
   var seasonStats = await fetchSelectedSeasonAverages(playerID, seasonNum);
    var playerInfo = await getPlayerInfo(playerID);
    if(playerNum === 1){ 
@@ -158,7 +157,6 @@ async function handlePlayerSelect(playerID, playerNum, seasonNum) {
     var contentBox =document.querySelector("#player2searchResults");
     var wikiExtractEl = document.querySelector("#wiki-bio2");
     var stats = document.querySelector("#stats2");
-    var loadSeasonsB = document.querySelector("#player2dropdownB");
   }
    var wikiExtract = await fetchWikiExtract(playerInfo.first_name, playerInfo.last_name);
    if (wikiExtract.length === 0) {
@@ -197,10 +195,6 @@ async function handlePlayerSelect(playerID, playerNum, seasonNum) {
   else{
     openModal("There are no recorded games for Player " + playerNum + " during the " + seasonNum + " season.");
   }
-   
-   
-  
-   
 }
 
 function openModal(modalText) {
