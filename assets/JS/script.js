@@ -109,13 +109,19 @@ function searchArea(searchArray, playerNum) {
 }
  
   async function selectSeason (playerID, playerNum) {
+    var playerInfo = await getPlayerInfo(playerID);
     var seasonNum = 2021;
     if (playerNum === 1) {
       var loadSeasonsB = document.querySelector("#player1dropdownB");
+      var contentBox = document.querySelector("#player1searchResults");
     }
     else {
       var loadSeasonsB = document.querySelector("#player2dropdownB");
+      var contentBox = document.querySelector("#player2searchResults");
     }
+    var playerNameEl = document.createElement("h2");
+    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
+    contentBox.appendChild(playerNameEl);
   //Makes dropdown list to select season averages
   loadSeasonsB.style.display = "inline-block";  
   var dropdownBox = document.createElement("select");
@@ -130,13 +136,15 @@ function searchArea(searchArray, playerNum) {
   loadSeasonsB.after(dropdownBox);
   loadSeasonsB.onclick =function(){
     if (playerNum === 1) {
-      dropdownBox.remove()
+      dropdownBox.remove();
+      playerNameEl.remove();
       loadSeasonsB.style.display = "none";
       handlePlayerSelect(playerID, 1, dropdownBox.value);
       
     }
     else {
-      dropdownBox.remove()
+      dropdownBox.remove();
+      playerNameEl.remove();
       loadSeasonsB.style.display = "none";
       handlePlayerSelect(playerID, 2, dropdownBox.value);
     }
@@ -168,13 +176,17 @@ async function handlePlayerSelect(playerID, playerNum, seasonNum) {
    var rebounds = document.createElement("p");
    var assist = document.createElement("p");
    var steals = document.createElement("p");
+   var pDesc = document.createElement("p");
+
 
   if (seasonStats.data.data.length > 0){
+    pDesc.textContent = "Season " + seasonNum + " averaged stats:";
     rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg";
     assist.innerHTML = seasonStats.data.data[0].ast + " apg";
     steals.innerHTML = seasonStats.data.data[0].stl + " spg";
     points.innerHTML = seasonStats.data.data[0].pts + " ppg";
 
+    stats.appendChild(pDesc);
     stats.appendChild(points); 
     stats.appendChild(rebounds);
     stats.appendChild(assist);
@@ -183,7 +195,8 @@ async function handlePlayerSelect(playerID, playerNum, seasonNum) {
     playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
     wikiExtractEl.innerHTML = wikiExtract;
     teamNameEl.innerHTML = playerInfo.team.name;
-
+    
+ 
     contentBox.appendChild(playerNameEl);
     contentBox.appendChild(teamNameEl);
 
@@ -218,7 +231,6 @@ function openModal(modalText) {
   homeBtn.addEventListener("click", function () { location.reload() });
 
   player1SearchButton.addEventListener("click", async function () {
-  var wikiBio1 = document.getElementById("wiki-bio1");
   var playerName1Input = document.querySelector("#player-name");
   var player1SearchResults = document.querySelector("#player1searchResults");
   var stats = document.querySelector("#stats");
@@ -229,10 +241,16 @@ function openModal(modalText) {
 
   Player1ClearButton.style.display = "block";
   Player1ClearButton.addEventListener("click", function () {
+    var wikiBio1 = document.querySelector("#wiki-bio1")
+    player1Options = document.querySelector("#player1options");
+    if (player1Options !== null) {
+      player2Options.remove();
+    }
       player1SearchResults.innerHTML = "";
       
       wikiBio1.innerHTML = "";
       stats.innerHTML = "";
+      wikiBio1.style.display = "none";
       stats.style.display = "none";
       loadSeasonsB.style.display = "none";
       player1SearchResults.style.display = "none";
@@ -263,9 +281,14 @@ player2SearchButton.addEventListener("click", async function () {
   player2SearchResults.style.display = "block";
   
   Player2ClearButton.addEventListener("click", function () {
+      player2Options = document.querySelector("#player2options");
+      if (player2Options !== null) {
+        player2Options.remove();
+      }
       player2SearchResults.innerHTML = "";
       wikiBio2.innerHTML = "";
       stats.innerHTML = "";
+      wikiBio2.style.display = "none";
       stats.style.display = "none";
       loadSeasonsB.style.display = "none";
       player2SearchResults.style.display = "none";
