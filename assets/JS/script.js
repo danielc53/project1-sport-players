@@ -107,6 +107,7 @@ function searchArea(searchArray, playerNum) {
   }
   searchBox.style.display = "inline-block";
 }
+ 
   async function selectSeason (playerID, playerNum) {
     var playerData = await getPlayerInfo(playerID);
     var seasonNum = 2021;
@@ -128,11 +129,12 @@ function searchArea(searchArray, playerNum) {
     dropdownBox.appendChild(options);
   }
   loadSeasonsB.after(dropdownBox);
-  loadSeasonsB.addEventListener("click", function(){
+  loadSeasonsB.onclick =function(){
     if (playerNum === 1) {
       dropdownBox.remove()
       loadSeasonsB.style.display = "none";
       handlePlayerSelect(playerID, 1, dropdownBox.value);
+      
     }
     else {
       dropdownBox.remove()
@@ -140,9 +142,8 @@ function searchArea(searchArray, playerNum) {
       handlePlayerSelect(playerID, 2, dropdownBox.value);
     }
     
-  })
   }
-
+  }
 
 //TODO: fetch images from local json maybe
 async function handlePlayerSelect(playerID, playerNum, seasonNum) {
@@ -172,10 +173,10 @@ async function handlePlayerSelect(playerID, playerNum, seasonNum) {
    var steals = document.createElement("p");
 
   if (seasonStats.data.data.length > 0){
-    rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg.";
-    assist.innerHTML = seasonStats.data.data[0].ast + " apg.";
-    steals.innerHTML = seasonStats.data.data[0].stl + " spg.";
-    points.innerHTML = seasonStats.data.data[0].pts + " ppg.";
+    rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg";
+    assist.innerHTML = seasonStats.data.data[0].ast + " apg";
+    steals.innerHTML = seasonStats.data.data[0].stl + " spg";
+    points.innerHTML = seasonStats.data.data[0].pts + " ppg";
 
     stats.appendChild(points); 
     stats.appendChild(rebounds);
@@ -203,6 +204,7 @@ async function handlePlayerSelect(playerID, playerNum, seasonNum) {
    
 }
 
+//Thanks to w3 schools for the code.
 function openModal(modalText) {
   var modal = document.querySelector("#modal");
   var close = document.querySelector("#closeModal");
@@ -227,6 +229,8 @@ function openModal(modalText) {
   var playerName1Input = document.querySelector("#player-name");
   var player1SearchResults = document.querySelector("#player1searchResults");
   var stats = document.querySelector("#stats");
+  var loadSeasonsB = document.querySelector("#player1dropdownB");
+
   player1SearchButton.style.display = "none";
   player1SearchResults.style.display = "block";
 
@@ -236,6 +240,7 @@ function openModal(modalText) {
       wikiBio1.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";
+      loadSeasonsB.style.display = "none";
       player1SearchResults.style.display = "none";
       player1SearchButton.style.display = "block";
       Player1ClearButton.style.display = "none";
@@ -258,6 +263,7 @@ player2SearchButton.addEventListener("click", async function () {
   var stats = document.querySelector("#stats2");
   var player2SearchResults = document.querySelector("#player2searchResults");
   var wikiBio2 = document.getElementById("wiki-bio2");
+  var loadSeasonsB = document.querySelector("#player2dropdownB");
   player2SearchButton.style.display = "none";
   Player2ClearButton.style.display = "block";
   player2SearchResults.style.display = "block";
@@ -267,6 +273,7 @@ player2SearchButton.addEventListener("click", async function () {
       wikiBio2.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";
+      loadSeasonsB.style.display = "none";
       player2SearchResults.style.display = "none";
       player2SearchButton.style.display = "block";
       Player2ClearButton.style.display = "none";
