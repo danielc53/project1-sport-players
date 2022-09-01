@@ -27,6 +27,7 @@ body {
     display: flex;
     /*sets space between for the logo/homeBtn container and the main title container*/
     justify-content: space-evenly; 
+
     /*BACKGROUND IMAGE SETTINGS*/
     background-image: url(../IMG/backgroundimg.jpeg);
     background-size: cover;
@@ -47,7 +48,7 @@ body {
     /*sets minimum height for the gray transparent background*/
     min-height: 300px;
     /*sets max height of the container to be whatever the height is of the displayed content*/
-    max-height: max-content;
+    height: 1000px;
 }
 
 /*sets position layout for the home button element*/
@@ -105,7 +106,8 @@ button {
 
 .infant-flex1-5, .infant-flex2-5 {
     overflow: auto;
-    height: 600px;
+    /*dictates height of scrollbox*/
+    height: 400px;
     outline: 1px solid black;
     padding: 10px;
     line-height: 35px;
