@@ -110,7 +110,6 @@ function searchArea(searchArray, playerNum) {
 //TODO: fetch images from local json maybe
 async function handlePlayerSelect(playerID, playerNum) {
   var seasonStats = await fetchSelectedSeasonAverages(playerID, "2021");
-  //console.log(seasonStats);
    var playerInfo = await getPlayerInfo(playerID);
    if(playerNum === 1){ 
     var contentBox = document.querySelector("#player1searchResults");
@@ -139,7 +138,7 @@ async function handlePlayerSelect(playerID, playerNum) {
    points.innerHTML = seasonStats.data.data[0].pts + " points per game.";
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
-   teamNameEl.innerHTML = playerInfo.team.name;
+   teamNameEl.innerHTML = playerInfo.team.full_name;
    stats.appendChild(points); 
    stats.appendChild(rebounds);
    stats.appendChild(assist);
@@ -147,9 +146,12 @@ async function handlePlayerSelect(playerID, playerNum) {
    contentBox.appendChild(playerNameEl);
    contentBox.appendChild(teamNameEl);
    stats.style.display = "block";
+   stats.style.color = "green";
+   stats.style.fontWeight = "800";
    teamNameEl.style.display = "block";
    playerNameEl.style.display = "inline-block";
    wikiExtractEl.style.display = "inline-block";
+   
 }
 
 function openModal(modalText) {
@@ -232,13 +234,3 @@ player2SearchButton.addEventListener("click", async function () {
     openModal("This player could not be found. Please check spelling and try again.");
   }
 });
-
-
-
-// //these are just for testing.
-// async function dothething() {
-//     var wikiText = await getWikiExtract(theplayerName);
-//     console.log(wikiText);
-// }
-// dothething();
-
