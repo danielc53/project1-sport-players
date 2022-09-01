@@ -93,6 +93,20 @@ body {
     margin-bottom: 10px;
 }
 
+.infant-flex1-2, .infant-flex2-2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.infant-flex1-5, .infant-flex2-5 {
+    overflow: auto;
+    height: 600px;
+    outline: 1px solid black;
+    padding: 10px;
+    line-height: 35px;
+    background-color: rgba(136, 136, 136, 0.404);
+}
+
 p {
     /*sets font size of the returned player search results*/
     font-size: 24px;
@@ -111,6 +125,8 @@ p {
 } */
 
 #player1searchResults, #player2searchResults {
+    display: flex;
+    justify-content: center;
     background-color: rgba(128, 128, 128, 0.74);
     padding: 20px;
     margin-top: 10px;
