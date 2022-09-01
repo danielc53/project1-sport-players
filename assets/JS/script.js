@@ -185,6 +185,7 @@ function openModal(modalText) {
   Player1ClearButton.style.display = "block";
   Player1ClearButton.addEventListener("click", function () {
       player1SearchResults.innerHTML = "";
+      wikiBio1.style.display = "none";
       wikiBio1.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";
@@ -192,7 +193,6 @@ function openModal(modalText) {
       player1SearchButton.style.display = "block";
       Player1ClearButton.style.display = "none";
     })
-
   var searchResults = await fetchSearchedPlayerName(playerName1Input.value.toString())
   if (searchResults.length === 1) {
     handlePlayerSelect(searchResults[0].id, 1);
@@ -216,6 +216,7 @@ player2SearchButton.addEventListener("click", async function () {
   player2SearchResults.style.display = "block";
   Player2ClearButton.addEventListener("click", function () {
       player2SearchResults.innerHTML = "";
+      wikiBio2.style.display = "none";
       wikiBio2.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";

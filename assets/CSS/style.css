@@ -109,6 +109,7 @@ button {
     padding: 10px;
     line-height: 35px;
     background-color: rgba(136, 136, 136, 0.404);
+    font-size: 24px;
 }
 
 p {
@@ -142,10 +143,10 @@ p {
     float: right;
 }
 
-#wiki-bio, #wiki-bio2 {
+/* #wiki-bio, #wiki-bio2 {
     max-height: 5em;
     overflow:scroll;
-}
+} */
 
 /* The Modal (background) */
 #modal {
