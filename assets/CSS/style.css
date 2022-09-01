@@ -26,7 +26,8 @@ body {
     /*FLEXBOX PROPERTIES*/
     display: flex;
     /*sets space between for the logo/homeBtn container and the main title container*/
-    justify-content: space-evenly;
+    justify-content: space-evenly; 
+
     /*BACKGROUND IMAGE SETTINGS*/
     background-image: url(../IMG/backgroundimg.jpeg);
     background-size: cover;
@@ -47,14 +48,14 @@ body {
     /*sets minimum height for the gray transparent background*/
     min-height: 300px;
     /*sets max height of the container to be whatever the height is of the displayed content*/
-    max-height: max-content;
+    height: 1000px;
 }
 
 /*sets position layout for the home button element*/
 .child-flex1-1 {
     /*FLEXBOX PROPERTIES*/
     display: flex;
-    justify-content: center;
+    justify-content: left;
     height: 150px;
     /*background settings of home button/icon*/
     background-image: url(../IMG/nba\ logo.jpeg);
@@ -69,6 +70,7 @@ body {
 .child-flex1-2 {
     /*FLEXBOX PROPERTIES*/
     display: flex;
+    justify-content: center;
     /*styles the main title text*/
     color: white;
     font-size: 60px;
@@ -104,12 +106,12 @@ button {
 
 .infant-flex1-5, .infant-flex2-5 {
     overflow: auto;
-    height: 600px;
+    /*dictates height of scrollbox*/
+    height: 400px;
     outline: 1px solid black;
     padding: 10px;
     line-height: 35px;
     background-color: rgba(136, 136, 136, 0.404);
-    font-size: 24px;
 }
 
 p {
@@ -143,12 +145,8 @@ p {
     float: right;
 }
 
-/* #wiki-bio, #wiki-bio2 {
-    max-height: 5em;
-    overflow:scroll;
-} */
-
-/* The Modal (background) */
+/* The Modal (background)
+   Thanks to https://www.w3schools.com/howto/howto_css_modals.asp */
 #modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
