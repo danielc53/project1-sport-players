@@ -47,7 +47,7 @@ body {
     /*sets minimum height for the gray transparent background*/
     min-height: 300px;
     /*sets max height of the container to be whatever the height is of the displayed content*/
-    max-height: max-content;
+    height: 1000px;
 }
 
 /*sets position layout for the home button element*/
