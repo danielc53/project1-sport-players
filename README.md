@@ -6,7 +6,7 @@ We created a website so that users will be able to search any NBA player and ret
 
 ## URL's
 
-Website:
+Website: https://danielc53.github.io/project1-sport-players/
 
 Repository: https://github.com/danielc53/project1-sport-players
 
