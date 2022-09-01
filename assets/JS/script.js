@@ -234,13 +234,3 @@ player2SearchButton.addEventListener("click", async function () {
     openModal("This player could not be found. Please check spelling and try again.");
   }
 });
-
-
-
-// //these are just for testing.
-// async function dothething() {
-//     var wikiText = await getWikiExtract(theplayerName);
-//     console.log(wikiText);
-// }
-// dothething();
-

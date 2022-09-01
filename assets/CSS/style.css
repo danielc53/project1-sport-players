@@ -126,6 +126,11 @@ p {
     float: right;
 }
 
+#wiki-bio, #wiki-bio2 {
+    max-height: 5em;
+    overflow:scroll;
+}
+
 /* The Modal (background) */
 #modal {
     display: none; /* Hidden by default */
