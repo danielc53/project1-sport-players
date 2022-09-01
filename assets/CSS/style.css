@@ -132,7 +132,7 @@ p {
 
 #player1searchResults, #player2searchResults {
     display: flex;
-    justify-content: center;
+    text-align: center;
     background-color: rgba(128, 128, 128, 0.74);
     padding: 20px;
     margin-top: 10px;

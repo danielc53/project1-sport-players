@@ -227,6 +227,7 @@ function openModal(modalText) {
   Player1ClearButton.style.display = "block";
   Player1ClearButton.addEventListener("click", function () {
       player1SearchResults.innerHTML = "";
+      
       wikiBio1.innerHTML = "";
       stats.innerHTML = "";
       stats.style.display = "none";
