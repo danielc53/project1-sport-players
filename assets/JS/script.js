@@ -133,10 +133,10 @@ async function handlePlayerSelect(playerID, playerNum) {
    var assist = document.createElement("p");
    var steals = document.createElement("p");
 
-   rebounds.innerHTML = seasonStats.data.data[0].reb + " rpg.";
-   assist.innerHTML = seasonStats.data.data[0].ast + " apg.";
-   steals.innerHTML = seasonStats.data.data[0].stl + " spg.";
-   points.innerHTML = seasonStats.data.data[0].pts + " ppg.";
+   rebounds.innerHTML = seasonStats.data.data[0].reb + " rebounds per game.";
+   assist.innerHTML = seasonStats.data.data[0].ast + " assists per game.";
+   steals.innerHTML = seasonStats.data.data[0].stl + " steals per game.";
+   points.innerHTML = seasonStats.data.data[0].pts + " points per game.";
    playerNameEl.innerHTML = playerInfo.first_name + " " + playerInfo.last_name;
    wikiExtractEl.innerHTML = wikiExtract;
    teamNameEl.innerHTML = playerInfo.team.name;
