@@ -105,7 +105,8 @@ button {
 
 .infant-flex1-5, .infant-flex2-5 {
     overflow: auto;
-    height: 600px;
+    /*dictates height of scrollbox*/
+    height: 400px;
     outline: 1px solid black;
     padding: 10px;
     line-height: 35px;
